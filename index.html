@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kimberly Cenabre — Executive Virtual Assistant portfolio featuring executive support, operations, CRM, real estate coordination, research, scheduling and workflow management.">
+<title>Kimberly Cenabre | Executive Virtual Assistant</title>
+<style>
+:root{
+  --navy:#132238;--navy2:#1e3552;--blue:#486581;--sky:#edf4f8;
+  --gold:#b98545;--text:#182230;--muted:#667085;--line:#e4e9ef;
+  --white:#fff;--shadow:0 18px 50px rgba(19,34,56,.10);
+  --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#fff;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,92%);margin:auto}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.90);backdrop-filter:blur(16px);border-bottom:1px solid rgba(228,233,239,.8)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:-.04em;font-size:18px}
+.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:28px;list-style:none;font-size:13px;font-weight:700;color:#526174}
+.navlinks a{position:relative}
+.navlinks a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:var(--gold);transition:.25s}
+.navlinks a:hover:after{width:100%}
+.menu{display:none;border:0;background:none;font-size:25px}
+
+/* HERO */
+.hero{min-height:100vh;background:
+ radial-gradient(circle at 85% 15%,rgba(72,101,129,.13),transparent 30%),
+ linear-gradient(135deg,#f9fbfc 0%,#edf3f7 100%);padding-top:76px;display:flex;align-items:center;position:relative}
+.hero:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(72,101,129,.13);border-radius:50%;right:-150px;top:110px}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:80px;align-items:center;padding:70px 0}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--blue);margin-bottom:18px}
+h1{font-size:clamp(45px,7vw,78px);line-height:.98;letter-spacing:-.065em;color:var(--navy);margin-bottom:25px}
+h1 em{font-style:normal;color:var(--blue)}
+.hero-text{font-size:18px;color:#59687a;max-width:700px;margin-bottom:30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 20px;border-radius:11px;border:1px solid var(--navy);font-size:13px;font-weight:800;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.secondary{background:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(19,34,56,.12)}
+.hero-photo{position:relative;display:flex;justify-content:center}
+.photo-wrap{width:min(390px,100%);aspect-ratio:4/5;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);border:8px solid rgba(255,255,255,.85);background:#fff;transform:rotate(1.5deg);transition:transform .5s}
+.photo-wrap:hover{transform:rotate(0) translateY(-6px)}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.photo-badge{position:absolute;bottom:18px;left:0;background:var(--navy);color:#fff;padding:14px 17px;border-radius:14px;box-shadow:var(--shadow);font-size:12px;font-weight:800}
+.photo-badge span{display:block;color:#bdcad7;font-weight:500;margin-top:2px}
+
+/* SECTIONS */
+section{padding:100px 0}
+.section-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:900;margin-bottom:10px}
+h2{font-size:clamp(31px,4vw,48px);letter-spacing:-.045em;line-height:1.08;color:var(--navy)}
+.section-lead{max-width:720px;color:var(--muted);margin-top:13px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.about-copy p{color:#526174;font-size:15px}
+.about-copy p+p{margin-top:15px}
+.focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.focus{background:var(--sky);border:1px solid #dfe9f0;padding:19px;border-radius:15px;font-size:13px;font-weight:800;color:var(--navy)}
+.focus small{display:block;color:var(--muted);font-weight:500;margin-top:4px}
+
+/* PROJECTS */
+.projects{background:#f7f9fb}
+.projects-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+.projects-head .section-lead{max-width:600px}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 18px rgba(19,34,56,.03);transition:.3s}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.visual{height:270px;background:#eaf0f4;overflow:hidden;position:relative;cursor:pointer}
+.visual img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .visual img{transform:scale(1.035)}
+.zoom{position:absolute;right:15px;top:15px;width:38px;height:38px;border-radius:50%;background:rgba(19,34,56,.82);color:#fff;display:grid;place-items:center;font-size:17px;opacity:0;transform:translateY(-5px);transition:.25s}
+.card:hover .zoom{opacity:1;transform:none}
+.noimage{height:100%;display:grid;place-items:center;padding:30px;background:linear-gradient(135deg,#eaf1f5,#f8fafc);color:var(--navy);font-weight:900;font-size:24px;text-align:center}
+.card-body{padding:25px}
+.number{font-size:10px;letter-spacing:.14em;color:var(--gold);font-weight:900}
+.card h3{font-size:22px;color:var(--navy);margin:9px 0 7px}
+.card p{font-size:13px;color:var(--muted)}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}
+.tag{font-size:10px;font-weight:800;padding:5px 9px;border-radius:999px;background:#f1f5f8;color:#536578;border:1px solid #e3e9ee}
+.card-link{display:inline-block;margin-top:19px;color:var(--blue);font-size:12px;font-weight:900}
+
+/* FEATURE */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.feature-visual{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#f4f7f9}
+.feature-visual img{display:block;width:100%;height:auto}
+.feature-copy ul{list-style:none;margin:22px 0;display:grid;gap:11px}
+.feature-copy li{font-size:14px;color:#526174}
+.feature-copy li:before{content:"✓";font-weight:900;color:var(--gold);margin-right:10px}
+
+/* EXPERIENCE */
+.experience{background:var(--navy);color:#fff}
+.experience h2{color:#fff}
+.experience .section-tag{color:#d7a86d}
+.exp-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:75px}
+.exp-intro{color:#c4d0db;font-size:15px}
+.role{border-left:2px solid #66809a;padding-left:28px}
+.role h3{font-size:22px}
+.role-meta{color:#d7a86d;font-size:12px;font-weight:800;margin:4px 0 18px}
+.role ul{list-style:none;display:grid;gap:12px}
+.role li{color:#c4d0db;font-size:14px}
+.role li:before{content:"•";color:#fff;font-weight:900;margin-right:10px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+.skill{padding:23px;border:1px solid var(--line);border-radius:17px;background:#fff;transition:.25s}
+.skill:hover{border-color:#c8d4df;transform:translateY(-3px)}
+.skill h3{font-size:14px;color:var(--navy);margin-bottom:8px}
+.skill p{font-size:12px;color:var(--muted)}
+
+/* CONTACT */
+.contact{background:linear-gradient(135deg,#edf3f7,#f9fbfc);text-align:center}
+.contact h2{max-width:760px;margin:auto}
+.contact p{max-width:620px;margin:15px auto 27px;color:var(--muted);font-size:15px}
+footer{background:#0e1a29;color:#9eb0c2;text-align:center;padding:24px;font-size:11px}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(5,12,20,.86);z-index:200;display:none;align-items:center;justify-content:center;padding:25px}
+.modal.open{display:flex}
+.modal img{max-width:94vw;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 25px 80px rgba(0,0,0,.4)}
+.close{position:fixed;right:25px;top:20px;color:#fff;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);width:44px;height:44px;border-radius:50%;font-size:25px;cursor:pointer}
+
+.tool-cloud{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tool-cloud span{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#f8fafc;color:#56677a;font-size:11px;font-weight:800;transition:.22s}.tool-cloud span:hover{transform:translateY(-2px);border-color:#c8d4df;background:#fff;box-shadow:0 7px 20px rgba(19,34,56,.07)}
+/* RESPONSIVE */
+@media(max-width:850px){
+ .navlinks{display:none}.menu{display:block}
+ .hero-grid,.about-grid,.feature,.exp-grid{grid-template-columns:1fr;gap:40px}
+ .hero-grid{padding:55px 0}.hero{min-height:auto}
+ .hero-photo{order:-1}.photo-wrap{width:290px}
+ .projects-head{display:block}.project-grid{grid-template-columns:1fr}
+ .skills-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ section{padding:72px 0}.focus-grid,.skills-grid{grid-template-columns:1fr}
+ h1{font-size:48px}.hero-text{font-size:16px}.btn{width:100%;justify-content:center}
+ .visual{height:220px}.card-body{padding:21px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav">
+    <a class="logo" href="#home">KIMBERLY <span>CENABRE</span></a>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="kicker">Executive Virtual Assistant · Operations · CRM</div>
+      <h1>Keeping business <em>organized & moving.</em></h1>
+      <p class="hero-text">
+        Executive Virtual Assistant and Operations Support professional providing dependable
+        support across administration, scheduling, CRM management, research, documentation,
+        real estate operations, stakeholder communication, and deadline-driven workflows.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#work">Explore My Work →</a>
+        <a class="btn secondary" href="#contact">Let's Connect</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <div class="photo-wrap"><img src="assets/kimberly.png" alt="Professional portrait of Kimberly Cenabre"></div>
+      <div class="photo-badge">Kimberly Cenabre<span>Executive Support & Operations</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-tag reveal">About Me</div>
+    <div class="about-grid">
+      <div class="reveal">
+        <h2>Reliable support behind the scenes.</h2>
+        <div class="about-copy" style="margin-top:22px">
+          <p>I provide executive, administrative, and operational support designed to keep priorities clear, information organized, and day-to-day workflows moving forward.</p>
+          <p>My experience includes real estate operations across acquisitions, dispositions, inspections, appraisals, property management support, listings, transaction coordination, and vendor communication.</p>
+          <p>I work with a strong focus on ownership, discretion, follow-through, and identifying the next step instead of waiting to be told what to do.</p>
+        </div>
+      </div>
+      <div class="focus-grid reveal">
+        <div class="focus">Executive Support<small>Administrative & operational assistance</small></div>
+        <div class="focus">Calendar Management<small>Scheduling, meetings & priorities</small></div>
+        <div class="focus">Email Management<small>Inbox organization & follow-ups</small></div>
+        <div class="focus">CRM Management<small>Records, pipelines & workflows</small></div>
+        <div class="focus">Research & Reporting<small>Organized, executive-ready information</small></div>
+        <div class="focus">Process & SOP Support<small>Clear, repeatable workflows</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="work">
+  <div class="container">
+    <div class="projects-head">
+      <div class="reveal">
+        <div class="section-tag">Selected Work</div>
+        <h2>Real examples of how I work.</h2>
+      </div>
+      <p class="section-lead reveal">A selection of work samples demonstrating organization, coordination, research, scheduling, reporting, and operational support. Client-sensitive details are redacted in the public examples.</p>
+    </div>
+
+    <div class="project-grid">
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/google-calendar.jpg')">
+          <img src="assets/google-calendar.jpg" alt="Calendar management sample">
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">01 · SCHEDULING</div>
+          <h3>Executive Calendar Management</h3>
+          <p>Coordinating meetings, deadlines, time zones, travel-related events and recurring executive priorities in a structured calendar.</p>
+          <div class="tags"><span class="tag">Calendar</span><span class="tag">Scheduling</span><span class="tag">Time Management</span></div>
+          <span class="card-link">Click image to enlarge →</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/monday-operations.jpg')">
+          <img src="assets/monday-operations.jpg" alt="Operations and transaction management dashboard sample">
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">02 · OPERATIONS</div>
+          <h3>Real Estate Operations Hub</h3>
+          <p>Centralized property and transaction tracking with status, deal type, occupancy, dates, responsible parties and operational information.</p>
+          <div class="tags"><span class="tag">Operations</span><span class="tag">CRM</span><span class="tag">Real Estate</span></div>
+          <span class="card-link">Click image to enlarge →</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/email-management.jpg')">
+          <img src="assets/email-management.jpg" alt="Rental property management tracker sample">
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">03 · PROPERTY MANAGEMENT</div>
+          <h3>Rental Property Tracker</h3>
+          <p>Organized property records covering move-in dates, tenant information, rent, pet rent, deposits and rental categories.</p>
+          <div class="tags"><span class="tag">Property Management</span><span class="tag">Data Management</span><span class="tag">Tracking</span></div>
+          <span class="card-link">Click image to enlarge →</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/calendly-meetings.jpg')">
+          <img src="assets/calendly-meetings.jpg" alt="Calendly meetings and scheduling management sample">
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">04 · MEETING COORDINATION</div>
+          <h3>Meeting & Appointment Management</h3>
+          <p>Managing meeting schedules, rescheduling, availability, recurring appointments, and executive booking workflows.</p>
+          <div class="tags"><span class="tag">Calendly</span><span class="tag">Scheduling</span><span class="tag">Meetings</span></div>
+          <span class="card-link">Click image to enlarge →</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/email-management.jpg')">
+          <img src="assets/email-management.jpg" alt="Executive email management work sample">
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">05 · COMMUNICATION</div>
+          <h3>Executive Email Management</h3>
+          <p>Prioritizing inboxes, drafting professional communication, tracking follow-ups, and keeping important conversations organized.</p>
+          <div class="tags"><span class="tag">Gmail</span><span class="tag">Email</span><span class="tag">Follow-Up</span></div>
+          <span class="card-link">Click image to enlarge →</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/real-estate-deals-tracker.png')">
+          <img src="assets/real-estate-deals-tracker.png" alt="Real estate deals tracker spreadsheet sample">
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">06 · DATA & UNDERWRITING</div>
+          <h3>Real Estate Deals Tracker</h3>
+          <p>Spreadsheet-based deal tracking with review queues, offer status, contract status, underwriting information, notes, and portfolio-level reporting.</p>
+          <div class="tags"><span class="tag">Excel / Sheets</span><span class="tag">Deal Tracking</span><span class="tag">Underwriting</span></div>
+          <span class="card-link">Click image to enlarge →</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="visual" onclick="openModal('assets/kimberly.png')">
+          <div class="noimage">Executive Support<br>& Operations</div>
+          <div class="zoom">＋</div>
+        </div>
+        <div class="card-body">
+          <div class="number">07 · EXECUTIVE SUPPORT</div>
+          <h3>Day-to-Day Business Coordination</h3>
+          <p>Managing multiple priorities, communications, documentation, follow-ups and moving parts so leadership can stay focused on higher-value decisions.</p>
+          <div class="tags"><span class="tag">Executive Support</span><span class="tag">Coordination</span><span class="tag">Follow-Up</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container feature">
+    <div class="feature-visual reveal">
+      <img src="assets/google-calendar.jpg" alt="Calendar work sample">
+    </div>
+    <div class="feature-copy reveal">
+      <div class="section-tag">Planning & Coordination</div>
+      <h2>From schedules to the smallest follow-up.</h2>
+      <p class="section-lead">Good executive support is about seeing the full picture while staying on top of the details.</p>
+      <ul>
+        <li>Coordinate meetings and maintain clear calendar priorities.</li>
+        <li>Track deadlines, outstanding requirements and next steps.</li>
+        <li>Keep records and CRM information organized and current.</li>
+        <li>Communicate with internal teams, vendors and external stakeholders.</li>
+        <li>Turn scattered information into clear, actionable updates.</li>
+      </ul>
+      <a class="btn primary" href="Travel-Itinerary-Sample.pdf" target="_blank">View Travel Itinerary Sample →</a>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-tag reveal">Experience</div>
+    <div class="exp-grid">
+      <div class="reveal">
+        <h2>Hands-on operations experience.</h2>
+        <p class="exp-intro" style="margin-top:18px">Remote professional experience supporting business leadership and real estate operations since 2022.</p>
+      </div>
+      <div class="role reveal">
+        <h3>Virtual Assistant / Real Estate Operations Manager / Executive Assistant</h3>
+        <div class="role-meta">Remote · 2022–2026</div>
+        <ul>
+          <li>Provided direct executive, administrative, and operational support including scheduling, priority management, research, documentation, follow-ups, and day-to-day coordination.</li>
+          <li>Coordinated properties, transactions, vendors, internal teams, and external stakeholders while maintaining organized workflows and clear next steps.</li>
+          <li>Managed communication and timelines involving buyers, sellers, agents, lenders, title companies, contractors, tenants, and other relevant parties.</li>
+          <li>Maintained CRM records, property data, transaction documentation, and follow-up pipelines while monitoring deadlines and outstanding requirements.</li>
+          <li>Coordinated inspections, appraisals, repairs, estimates, contractors, and vendor updates for acquisition, disposition, and property operations.</li>
+          <li>Supported listing and disposition activities including listing preparation, online postings, showing coordination, pricing updates, and buyer follow-up.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-tag reveal">Technical Skills & Tools</div>
+    <h2 class="reveal">A practical toolkit for modern operations.</h2>
+    <p class="section-lead reveal">Experienced across real estate operations, executive support, CRM workflows, digital documents, communication, automation, research, and project management.</p>
+    <div class="skills-grid">
+      <div class="skill reveal"><h3>CRM & Automation</h3><p>GoHighLevel (GHL), Zoho, Zapier, CRM database management, lead tracking, pipelines, automated follow-ups, email/SMS workflows and business process automation.</p></div>
+      <div class="skill reveal"><h3>Real Estate Operations</h3><p>Zillow, Realtor.com, MLS Platforms, Houzeo, Dotloop, ShowingTime, PropStream, Privy, PropertyRadar, REISift, Direct Skip, FOREWARN and Crexi.</p></div>
+      <div class="skill reveal"><h3>Property Management</h3><p>Property records, tenant and lease tracking, rental research, maintenance and preservation coordination, HOA/compliance tracking, vendor management and Housing Authority portals.</p></div>
+      <div class="skill reveal"><h3>Executive Productivity</h3><p>Microsoft Word, Excel, Outlook, Google Workspace, Google Docs, Google Sheets, Google Drive, Google Calendar, Gmail, Calendly, Zoom, Slack, Monday.com and Asana.</p></div>
+      <div class="skill reveal"><h3>Documents & Digital Files</h3><p>Adobe Acrobat Pro, DocuSign, Dropbox, digital transaction management, electronic signatures, document preparation, file organization and cloud storage.</p></div>
+      <div class="skill reveal"><h3>Communication & Calling</h3><p>Dialpad, Launch Control, BatchDialer, WhatsApp, Discord, Slack, email communication, SMS outreach, call tracking and stakeholder coordination.</p></div>
+      <div class="skill reveal"><h3>Research & Data</h3><p>Property and market research, comparable analysis, owner research, rental pricing analysis, data organization, reporting, KPI tracking and operational dashboards.</p></div>
+      <div class="skill reveal"><h3>Construction & Projects</h3><p>Buildertrend, project coordination, scheduling, budgeting, contractor communication, estimates, work orders, task tracking, deadlines and project workflows.</p></div>
+      <div class="skill reveal"><h3>AI & Digital Productivity</h3><p>ChatGPT and AI-assisted research, content creation, document preparation, data analysis, organization, workflow development and repetitive-process support.</p></div>
+      <div class="skill reveal"><h3>Security & Access</h3><p>LastPass, user account and access management, software permissions, credential organization, connectivity troubleshooting and common software/system issue resolution.</p></div>
+      <div class="skill reveal"><h3>Marketing & Listings</h3><p>Facebook/Meta tools, Facebook Marketplace, social media management, email and SMS marketing, property listing creation, monitoring and distribution.</p></div>
+      <div class="skill reveal"><h3>Business & Finance Support</h3><p>Financial and property data management, expenses, income, invoices, payments, financing information, deal profitability and business documentation.</p></div>
+    </div>
+    <div class="tool-cloud reveal"><span>Google Workspace</span><span>Microsoft Office</span><span>GoHighLevel</span><span>Monday.com</span><span>Asana</span><span>Calendly</span><span>Zapier</span><span>DocuSign</span><span>Adobe Acrobat Pro</span><span>PropStream</span><span>Dotloop</span><span>Zillow</span><span>Realtor.com</span><span>Buildertrend</span><span>ChatGPT</span><span>Slack</span><span>Zoom</span><span>Dialpad</span></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-tag reveal">Let's Connect</div>
+    <h2 class="reveal">Need reliable support to keep your business moving?</h2>
+    <p class="reveal">Available for executive assistance, operations support, CRM management, real estate coordination, research, documentation and administrative workflows.</p>
+    <div class="btns reveal" style="justify-content:center">
+      <a class="btn primary" href="mailto:Kimyorkva@gmail.com">Email Kimberly</a>
+      <a class="btn secondary" href="#home">Back to Top ↑</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Kimberly Cenabre · Executive Support, Operations & Real Estate</footer>
+
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <button class="close" aria-label="Close">×</button>
+  <img id="modalImage" src="" alt="Enlarged work sample">
+</div>
+
+<script>
+function openModal(src){
+  document.getElementById('modalImage').src=src;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){
+  if(e.target.id==='modal'||e.target.classList.contains('close')){
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}});
+function toggleMenu(){
+  const n=document.getElementById('navlinks');
+  n.style.display=n.style.display==='flex'?'none':'flex';
+  if(n.style.display==='flex'){n.style.position='absolute';n.style.top='76px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.padding='20px';n.style.flexDirection='column';n.style.gap='17px';n.style.borderBottom='1px solid #e4e9ef';}
+}
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
